@@ -26,8 +26,9 @@ public class Weapon : MonoBehaviour
         if(counter == maxCount)
         {
             Destroy(gameObject);
+            counter = 0;
         }
-        else
+        else if(counter < maxCount)
         {
             counter ++;
         }
