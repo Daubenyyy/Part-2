@@ -12,6 +12,8 @@ public class Knight : MonoBehaviour
     bool clickingOnSelf = false;
     public float health;
     public float maxHealth = 5f;
+    bool isDead = false;
+    public HealthBar healthbar;
 
     void Start()
     {
@@ -41,8 +43,11 @@ public class Knight : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (isDead) return;
+
         clickingOnSelf = true;
         TakeDamage(1);
+        healthbar.TakeDamage(1);
     }
 
     private void OnMouseUp()
@@ -50,16 +55,18 @@ public class Knight : MonoBehaviour
         clickingOnSelf = false;
     }
 
-    void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
         health = Mathf.Clamp(health, 0, maxHealth);
         if(health == 0)
         {
+            isDead = true;
             animator.SetTrigger("Death");
         }
         else
         {
+            isDead = false;
             animator.SetTrigger("TakeDamage");
         }
     }
