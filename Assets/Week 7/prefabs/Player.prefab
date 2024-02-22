@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 4893430452176629646}
+  unSelectedColour: {r: 0.50980395, g: 0, b: 0, a: 0}
 --- !u!212 &4893430452176629646
 SpriteRenderer:
   m_ObjectHideFlags: 0

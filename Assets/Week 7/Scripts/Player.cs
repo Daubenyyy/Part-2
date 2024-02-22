@@ -7,12 +7,14 @@ public class Player : MonoBehaviour
 {
     Rigidbody rb;
     public SpriteRenderer spriteRenderer;
+    public Color unSelectedColour;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         spriteRenderer.color = Color.red;
         Selected(false);
+        
     }
 
     // Update is called once per frame
@@ -23,7 +25,7 @@ public class Player : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Selected(true);
+        Controller.SetSelectedPlayer(this);
     }
 
     public void Selected(bool isSelected)
@@ -33,7 +35,7 @@ public class Player : MonoBehaviour
             spriteRenderer.color = Color.green;
         }
         else { 
-            spriteRenderer.color = Color.red;
+            spriteRenderer.color = unSelectedColour;
         }
     }
 }
