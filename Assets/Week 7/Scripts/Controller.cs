@@ -9,6 +9,7 @@ public class Controller : MonoBehaviour
     float chargeValue;
     public float maxCharge = 1;
     Vector2 direction;
+    public static float score = 0;
     public static Player SelectedPlayer { get; private set; }
     public static void SetSelectedPlayer(Player player)
     {
