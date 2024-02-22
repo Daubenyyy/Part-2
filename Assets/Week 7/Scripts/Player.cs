@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    Rigidbody rb;
+    Rigidbody2D rb;
     public SpriteRenderer spriteRenderer;
     public Color unSelectedColour;
+    public float speed = 100;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
         spriteRenderer.color = unSelectedColour;
         Selected(false);
         
@@ -37,5 +38,10 @@ public class Player : MonoBehaviour
         else { 
             spriteRenderer.color = unSelectedColour;
         }
+    }
+
+    public void Move(Vector2 direction)
+    {
+        rb.AddForce(direction * speed);
     }
 }
