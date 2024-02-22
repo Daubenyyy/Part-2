@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        spriteRenderer.color = Color.red;
+        spriteRenderer.color = unSelectedColour;
         Selected(false);
         
     }
